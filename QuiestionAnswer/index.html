@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+  </head>
+  <body>
+    <div>
+      <h1>Simple Quiz</h1>
+      <div class="quiz">
+        <h2 id="question">Question goes here</h2>
+
+        <!-- FIXED: added id and removed static answers -->
+        <div class="answer-button" id="answer-buttons"></div>
+
+        <button id="next">Next</button>
+      </div>
+    </div>
+
+    <script>
+      const Questions = [
+        {
+          qustn: "What is the capital of India?",
+          ans: [
+            { text: "Mumbai", correct: false },
+            { text: "Delhi", correct: true },
+            { text: "Chennai", correct: false },
+            { text: "Kolkata", correct: false },
+          ],
+        },
+        {
+          qustn: "Which one is a programming language?",
+          ans: [
+            { text: "HTML", correct: false },
+            { text: "CSS", correct: false },
+            { text: "JavaScript", correct: true },
+            { text: "Photoshop", correct: false },
+          ],
+        },
+        {
+          qustn: "What does CPU stand for?",
+          ans: [
+            { text: "Central Process Unit", correct: false },
+            { text: "Central Processing Unit", correct: true },
+            { text: "Control Program Unit", correct: false },
+            { text: "Computer Power Utility", correct: false },
+          ],
+        },
+        {
+          qustn: "Which one is a fruit?",
+          ans: [
+            { text: "Potato", correct: false },
+            { text: "Tomato", correct: true },
+            { text: "Carrot", correct: false },
+            { text: "Spinach", correct: false },
+          ],
+        },
+      ];
+
+      const questionElement = document.getElementById("question");
+      const answerButtons = document.getElementById("answer-buttons");
+      const nextBtn = document.getElementById("next");
+
+      let currentQuestionIndex = 0;
+
+      function startQuiz() {
+        currentQuestionIndex = 0;
+        showQuestion();
+      }
+
+      function showQuestion() {
+        answerButtons.innerHTML = "";
+
+        let currentQuestion = Questions[currentQuestionIndex];
+        questionElement.innerHTML =
+          currentQuestionIndex + 1 + ". " + currentQuestion.qustn;
+
+        currentQuestion.ans.forEach((ans) => {
+          const button = document.createElement("button");
+          button.innerHTML = ans.text;
+          button.classList.add("btn");
+
+          answerButtons.appendChild(button);
+        });
+      }
+
+      startQuiz();
+    </script>
+  </body>
+</html>

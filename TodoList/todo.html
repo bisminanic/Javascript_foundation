@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <h1>Todo list</h1>
+    <input type="text" placeholder="Enter your task" id="tasks" />
+    <button id="Task_Add" onclick="AddTask()">Add task</button>
+
+    <ul id="ListTask">
+      <!-- <li >Task1 <span>x</span></li>
+            <li>Task2</li>
+            <li>Task3</li> -->
+    </ul>
+  </body>
+  <script>
+    const TaskName = document.getElementById("tasks");
+    const AddBtn = document.getElementById("Task_Add");
+    const ListTask = document.getElementById("ListTask");
+    function AddTask() {
+      if (TaskName.value === "") {
+        alert("Yor write something");
+      } else {
+     
+        let div = document.createElement("div");
+        div.className = "task";
+
+
+
+        let li = document.createElement("li");
+        li.innerHTML = TaskName.value;
+
+
+        let span = document.createElement("span");
+        span.className="removeBtn";
+        span.innerHTML = "x";
+
+         span.addEventListener("click", function () {
+            div.remove();
+          });
+
+        div.appendChild(li);
+        div.appendChild(span);
+        ListTask.appendChild(div);
+      }
+
+      
+      TaskName.value = "";
+    }
+  </script>
+</html>
