@@ -1,15 +1,36 @@
-ul .task{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 200px !important;
-    background-color: aquamarine;
+ul .task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 200px !important;
+  background-color: aquamarine;
 }
-.task{
- display: flex;
-    align-items: center;
-    justify-content: space-between;
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-span:hover{
-    cursor: pointer;
+span:hover {
+  cursor: pointer;
+}
+.noteWrap {
+  background: #fff;
+  border: 1px solid red;
+  width: 200px;
+  height: 160px;
+  margin-top: 10px;
+}
+.noteList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+body {
+  background-color: #ebe9e7 !important;
+}
+.delete {
+  text-align: end;
+}
+.delete:hover {
+  cursor: pointer;
 }

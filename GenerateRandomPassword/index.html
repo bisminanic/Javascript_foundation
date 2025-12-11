@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input id="passwordinput" type="text" placeholder="Random Password">
+        <button id="passwordGenerate" onclick="passwordGenerate()">Generate</button>
+    </div>
+    <script>
+         function passwordGenerate(len = 10) {
+            debugger
+            var letters = "abcdefghijklmnopqrstuvwxyz";
+            var numbers = "0123456789";
+            var symbols = "!@#$%^&*()_+~`|}{[]\\:;?><,./-=";
+
+            var all = letters + letters.toUpperCase() + numbers + symbols;
+            var password = "";
+
+            for (let i = 0; i < len; i++) {
+                var index = Math.floor(Math.random() * all.length);
+                password += all.charAt(index);
+            }
+
+           
+            document.getElementById("passwordinput").value=password;
+        }
+    </script>
+</body>
+</html>
